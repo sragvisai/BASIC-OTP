@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+        <script type="text/javascript" src="script2.js"></script>
+        <link rel="stylesheet" href="styles.css">
+
+    </head>
+    <body ng-app = "myApp" ng-controller = "myCtrl">
+        <h2> Please provide your phone number :
+            <input type="text" ng-model="phoneNumber"></h2>
+        <div ng-if = "!isOtp">            
+                <input type = "submit" ng-click="triggerOtp()">                
+        </div>
+        <div ng-hide="!isOtp">
+            <div ng-hide="invalidOtp">
+                <p> 
+                    Please enter the opt you have received
+                </p>
+            </div>
+            <div ng-hide="!invalidOtp">
+                <p>
+                    Incorrect! Please re-enter your otp.
+                </p>
+            </div>
+            
+            <input type="text" ng-model="otp">
+            <div class = "otpSubmit">
+                <input type = "submit" ng-click="verifyTheOtp()">
+            </div>
+        </div>
+        
+    </body>
+</html>
